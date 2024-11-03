@@ -1,0 +1,58 @@
+496:
+
+var nextGreaterElement = function(nums1, nums2) {
+    const num = nums1.map((el) => {
+        const i = nums2.indexOf(el);
+        for(let j = i + 1; j < nums2.length; j++){
+            if(el < nums2[j]){
+                return nums2[j]
+            }
+        }
+        return -1
+    })
+    return num 
+};
+
+2: 
+
+var addTwoNumbers = function(l1, l2) {
+    function reversed(n){
+        let str = ''
+        let arr = []
+        while(n){
+            arr.push(n.val)
+            n = n.next
+        }
+        arr.reverse()
+        arr.forEach(el => {str += el})
+        return str;
+    }
+
+    console.log(l1, l2);
+    
+
+    let x = reversed(l1)
+    let y = reversed(l2)
+
+    console.log(x, y);
+    
+
+    const ret = (BigInt(x) + BigInt(y)).toString().split('').reverse()
+    console.log(ret);
+    
+
+    let head = null;
+    let curr = null;
+    for(let el of ret){
+        let newNode = new ListNode(Number(el))
+        if (!head){
+            head = newNode;
+            curr = head;
+        } else {
+            curr.next = newNode
+            curr = newNode
+        }
+    }
+
+    return head
+};
