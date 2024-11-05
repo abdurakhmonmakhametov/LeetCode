@@ -1,0 +1,15 @@
+2914:
+
+var minChanges = function(s) {      
+    let r = 0;
+    if(s.includes('0') && s.includes('1')) {
+        for(let i = 0; i < s.length; i += 2){
+            if(!(s[i] === s[i+1])){
+                r++
+            }
+        }      
+        return r
+    } else {
+        return 0
+    }
+};
